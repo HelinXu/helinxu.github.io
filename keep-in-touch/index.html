@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Let's keep in touch · 常联系 | Helin Xu</title>
+  <meta name="description" content="Helin Xu · 徐赫临 — let's keep in touch! WeChat, email, LinkedIn and more.">
+  <meta name="author" content="Helin Xu">
+  <meta name="theme-color" content="#1d47c4">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://helinxu.com/keep-in-touch/">
+  <meta property="og:title" content="Let's keep in touch · 常联系 | Helin Xu">
+  <meta property="og:description" content="In case I don't see ya — good afternoon, good evening, and good night!">
+  <meta property="og:image" content="https://helinxu.com/images/helin.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚪</text></svg>">
+  <link rel="apple-touch-icon" href="../images/icon.jpg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <span class="cloud c1"></span>
+    <span class="cloud c2"></span>
+    <span class="cloud c3"></span>
+    <span class="stars"></span>
+  </div>
+
+  <main class="page">
+    <header class="hero">
+      <div class="stage" aria-hidden="true">
+        <div class="doorway">
+          <div class="door-panel"></div>
+          <img class="avatar" src="../images/helin.jpg" alt="" width="84" height="84">
+        </div>
+        <div class="steps"><span></span><span></span></div>
+      </div>
+
+      <h1 class="title">
+        <span>Let's keep in touch!</span>
+        <span class="zh" lang="zh-CN">我们保持联系！</span>
+      </h1>
+
+      <blockquote class="quote">
+        <p>“In case I don't see ya — good afternoon, good evening, and good night!”</p>
+        <p lang="zh-CN">“假如再也见不到你，祝你早安、午安、晚安！”</p>
+      </blockquote>
+
+      <div class="note">
+        <p>I'm wrapping up my time at TikTok and stepping through the next door. Thank you for every review, every late-night debugging session, and every bit of help along the way. It's been a privilege working with you — let's stay in touch!</p>
+        <p lang="zh-CN">在 TikTok 的这段旅程即将画上句号，我要推开下一扇门了。谢谢一路上的每一次 review、每一次一起排查问题，以及所有的帮助与支持。有幸共事，我们常联系！</p>
+        <p class="sign">— Helin Xu · <span lang="zh-CN">徐赫临</span></p>
+      </div>
+    </header>
+
+    <section class="find" aria-labelledby="find-me">
+      <h2 id="find-me" class="section-title">
+        <span>Find me here</span>
+        <span class="zh" lang="zh-CN">联系方式</span>
+      </h2>
+      <ul class="contacts" id="contacts"></ul>
+      <noscript><p class="noscript">Turn on JavaScript to see my contacts, or email <a href="mailto:xuhelin1911@gmail.com">xuhelin1911@gmail.com</a>.</p></noscript>
+    </section>
+
+    <footer class="footer">
+      <p>
+        <span>Wishing you all the best</span>
+        <span aria-hidden="true">·</span>
+        <span lang="zh-CN">祝你一切顺利</span>
+      </p>
+      <p><a href="../">helinxu.com</a></p>
+    </footer>
+  </main>
+
+  <dialog class="qr" id="qr-dialog" aria-labelledby="qr-title">
+    <h3 id="qr-title"><span>Add me on WeChat</span> <span class="zh" lang="zh-CN">加我微信</span></h3>
+    <img id="qr-img" alt="WeChat QR code · 微信二维码">
+    <p class="qr-hint">In WeChat, long-press the code to add me<br><span lang="zh-CN">在微信里长按二维码即可添加</span></p>
+    <p class="qr-id" id="qr-id-row" hidden>WeChat ID · <span lang="zh-CN">微信号</span>: <strong id="qr-id"></strong></p>
+    <div class="qr-actions">
+      <button type="button" class="btn btn-primary" id="qr-copy" hidden>Copy ID · <span lang="zh-CN">复制微信号</span></button>
+      <a class="btn" id="qr-save" download>Save image · <span lang="zh-CN">保存图片</span></a>
+      <button type="button" class="btn" id="qr-close">Close · <span lang="zh-CN">关闭</span></button>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="config.js"></script>
+  <script src="icons.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
