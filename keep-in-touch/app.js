@@ -16,20 +16,20 @@
   // Each platform: how to read its config, what to show, what to copy, where to link.
   var PLATFORMS = {
     wechat: {
-      name: "WeChat", zh: "微信", brand: "#07C160",
+      name: "WeChat", brand: "#07C160",
       ok: function (c) { return handle(c.id) || trim(c.qr); },
-      show: function (c) { return handle(c.id) || "Tap for QR code · 点开扫码"; },
+      show: function (c) { return handle(c.id) || "Tap for QR code"; },
       copy: function (c) { return handle(c.id); }
     },
     email: {
-      name: "Email", zh: "邮箱", brand: "#1d47c4",
+      name: "Email", brand: "#1d47c4",
       ok: function (c) { return trim(c.address); },
       show: function (c) { return trim(c.address); },
       copy: function (c) { return trim(c.address); },
       href: function (c) { return "mailto:" + trim(c.address); }
     },
     linkedin: {
-      name: "LinkedIn", zh: "领英", brand: "#0A66C2",
+      name: "LinkedIn", brand: "#0A66C2",
       ok: function (c) { return handle(c.slug); },
       show: function (c) { return "in/" + handle(c.slug); },
       copy: function (c) { return "https://www.linkedin.com/in/" + handle(c.slug) + "/"; },
@@ -58,7 +58,7 @@
       href: function (c) { return "https://www.instagram.com/" + handle(c.username) + "/"; }
     },
     x: {
-      name: "X", zh: "推特", brand: "#111111",
+      name: "X", brand: "#111111",
       ok: function (c) { return handle(c.username); },
       show: function (c) { return "@" + handle(c.username); },
       copy: function (c) { return "https://x.com/" + handle(c.username); },
@@ -86,8 +86,7 @@
     var p = PLATFORMS[key], c = C[key];
     if (!p || !c || !p.ok(c)) return;
 
-    var label = '<span class="label">' + p.name +
-      (p.zh ? ' <span class="label-zh" lang="zh-CN">' + p.zh + "</span>" : "") + "</span>";
+    var label = '<span class="label">' + p.name + "</span>";
     var inner =
       '<span class="tile">' + (ICONS[key] || "") + "</span>" +
       '<span class="meta">' + label + '<span class="handle">' + esc(p.show(c)) + "</span></span>" +
@@ -104,7 +103,7 @@
     li.style.setProperty("--brand", p.brand);
     li.style.setProperty("--i", n++);
     li.innerHTML = main + (copyText
-      ? '<button class="copy" type="button" aria-label="Copy ' + p.name + ' · 复制">' + COPY_ICON + "</button>"
+      ? '<button class="copy" type="button" aria-label="Copy ' + p.name + '">' + COPY_ICON + "</button>"
       : "");
 
     if (copyText) li.querySelector(".copy").addEventListener("click", function () { copy(copyText); });
@@ -119,7 +118,7 @@
     var id = handle(c.id), qr = trim(c.qr);
     if (!qr || !dialog || typeof dialog.showModal !== "function") {
       if (qr) { window.open(qr, "_blank", "noopener"); return; }
-      copy(id, "WeChat ID copied! · 微信号已复制！\nSearch it in WeChat · 去微信搜索添加");
+      copy(id, "WeChat ID copied!\nSearch it in WeChat to add me");
       return;
     }
     document.getElementById("qr-img").src = qr;
@@ -139,8 +138,8 @@
 
   /* ---------- copy + toast ---------- */
   function copy(text, message) {
-    var ok = function () { toast(message || "Copied! · 已复制！"); };
-    var fail = function () { toast("Couldn't copy · 复制失败\nLong-press to select · 请长按选择"); };
+    var ok = function () { toast(message || "Copied!"); };
+    var fail = function () { toast("Couldn't copy\nLong-press to select it"); };
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(text).then(ok, function () { (legacyCopy(text) ? ok : fail)(); });
     } else {
