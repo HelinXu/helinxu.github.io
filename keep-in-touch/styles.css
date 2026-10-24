@@ -213,22 +213,8 @@ body {
 .quote p { margin: 0; }
 .quote p + p { margin-top: 4px; font-style: normal; }
 
-.note {
-  text-align: left;
-  background: var(--card);
-  color: var(--ink);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 20px 22px;
-  font-size: 15.5px;
-  line-height: 1.7;
-}
-.note p { margin: 0 0 10px; }
-.note p[lang="zh-CN"] { color: var(--muted); }
-.note .sign { margin: 4px 0 0; text-align: right; font-weight: 600; color: var(--ink); }
-
 /* ---------- contacts ---------- */
-.find { margin-top: 34px; }
+.find { margin-top: 10px; }
 
 .section-title {
   margin: 0 0 14px;
